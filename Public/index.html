@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Candle</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: pink;
+        }
+        canvas {
+            background-color: #fff0f5; /* Light pink background */
+        }
+    </style>
+</head>
+<body>
+    <canvas id="candleCanvas" width="200" height="300"></canvas>
+    <script>
+        const canvas = document.getElementById('candleCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // Draw candle
+        function drawCandle(lit) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas
+
+            // Draw the candle body
+            ctx.fillStyle = 'white';
+            ctx.fillRect(75, 150, 50, 100);
+
+            // Draw the flame if lit
+            if (lit) {
+                ctx.beginPath();
+                ctx.moveTo(100, 150);
+                ctx.lineTo(90, 110);
+                ctx.lineTo(110, 110);
+                ctx.fillStyle = 'yellow';
+                ctx.fill();
+            }
+        }
+
+        // Initial candle state
+        let candleLit = true;
+        drawCandle(candleLit);
+
+        // Listen for any key press to blow out the candle
+        window.addEventListener('keydown', () => {
+            candleLit = false;
+            drawCandle(candleLit);
+        });
+    </script>
+</body>
+</html>
+<body>
+    <canvas id="candleCanvas" width="200" height="300"></canvas>
+    <script src="candle.js"></script>
+</body>
+
