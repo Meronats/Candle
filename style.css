@@ -1,0 +1,87 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.candle {
+    width: 500px; /* Adjusted to three times the original size */
+    height: auto; /* This ensures the height adjusts proportionally to the width */
+    margin: 5px;
+}
+
+#start {
+    margin-top: 20px;
+}
+
+If the raining hearts animation isn't working as expected, let's troubleshoot and ensure each part of the code is correctly implemented. Here are a few common issues and solutions:
+
+1. Check Your HTML Structure
+Ensure you've included the container for the hearts and the "Happy Birthday" message in your HTML:
+
+html
+Copy code
+<div id="hearts-container"></div>
+<div id="birthday-message">Happy Birthday!</div>
+
+#hearts-container {
+    position: fixed; /* Updated to fixed for full coverage */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none; /* Allows clicks to pass through */
+}
+
+.heart {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: rgb(203, 24, 57); /* Placeholder, use an image or CSS art */
+    background: url('https://static.vecteezy.com/system/resources/previews/010/329/885/original/doodle-love-heart-free-png.png') no-repeat center center;
+    background-size: contain;
+    opacity: 0.7;
+    animation: fall linear;
+}
+
+@keyframes fall {
+    0% { top: -10%; }
+    100% { top: 110%; }
+}
+.heart {
+    animation: fall 5s linear infinite;
+}
+#birthday-message {
+    position: absolute;
+    top: 20%; /* Adjust as needed */
+    left: 20%;
+    transform: translate(-50%, -50%);
+    font-size: 2em;
+    color: pink;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+}
+#birthday-message2 {
+    position: absolute;
+    top: 80%; /* Adjust as needed */
+    left: 80%;
+    transform: translate(-50%, -50%);
+    font-size: 2em;
+    color: pink;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+}
+#birthday-message3 {
+    position: absolute;
+    top: 20%; /* Adjust as needed */
+    left: 80%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for centering */
+    font-size: 4em; /* Increase the font size */
+    color: pink; /* Set the text color to pink */
+    font-weight: bold; /* Make the font bold */
+    font-family: 'Arial', sans-serif; /* Arial font or any font you prefer */
+   
+}
