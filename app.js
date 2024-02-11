@@ -26,8 +26,8 @@ function processAudio(stream) {
         }
         let average = sum / bufferLength;
 
-        // Simple check for "blow" - adjust threshold as needed
-        if (average > 60) { // Threshold value, may need adjustment
+       
+        if (average > 60) { 
             blowOutCandle('candle1');
         }
 
@@ -39,16 +39,15 @@ function processAudio(stream) {
 
 function blowOutCandle(candleId) {
     const candle = document.getElementById(candleId);
-    candle.src = 'images/cake2.png'; // Assuming 'cake2.png' is the extinguished candle
+    candle.src = 'images/cake2.png'; 
 
-    // Wait for a short period to simulate the candle being blown out, then start the hearts raining
-    setTimeout(createHearts, 500); // Adjust delay as necessary
+    setTimeout(createHearts, 500); 
 }
 
 
 function createHearts() {
     const heartsContainer = document.getElementById('hearts-container');
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 20; i++) {
         const heart = document.createElement('div');
         heart.classList.add('heart');
         heart.style.left = `${Math.random() * 100}%`;
@@ -58,6 +57,6 @@ function createHearts() {
     }
 }
 
-// Ensure DOM is fully loaded before executing
+
 document.addEventListener('DOMContentLoaded', createHearts);
 
